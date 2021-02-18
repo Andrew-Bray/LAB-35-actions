@@ -1,0 +1,33 @@
+.main-body {
+  display: flex;
+  flex-direction: row;
+}
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+}
+
+li {
+  background-color: rgb(228, 228, 228);
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 5px;
+}
+
+p {
+  text-align: left;
+}
+
+form {
+  background-color: honeydew;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+button {
+  margin: 4px;
+}
