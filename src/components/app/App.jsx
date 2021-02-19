@@ -1,13 +1,19 @@
 import React from 'react';
-import BlogList from '../blogs/BlogList';
-import BlogForm from '../form/BlogForm';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import BlogPage from '../blogs/BlogPage';
+import Home from '../home/Home';
 import './app.css';
 
 export default function App() {
   return (
+
     <div className="main-body">
-      <BlogList />
-      <BlogForm />
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/blogpost/:id" component={BlogPage} />
+        </Switch>
+      </Router>
     </div>
   );
 }

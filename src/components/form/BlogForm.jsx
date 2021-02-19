@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { createBlog } from '../../actions/blogActions';
-import { useDispatch } from '../../state/BlogProvider';
+import { useDispatch } from 'react-redux';
 
 const BlogForm = () => {
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
   
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [id, setId] = useState(1);
 
-  const handleSubmit = e => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    setId(Date.now());
+    const newId = Date.now();
+    await setId(newId);
     dispatch(createBlog({ id, title, body }));
     setTitle('');
     setBody('');

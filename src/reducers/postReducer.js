@@ -4,7 +4,7 @@ export const initialState = {
   blogs: []
 };
 
-export default function reducer(state, action) {
+export default function reducer(state = initialState, action) {
   switch(action.type) {
     case CREATE_BLOG:
       return {
@@ -19,5 +19,5 @@ export default function reducer(state, action) {
     default: 
       return state;
   }
-};
+}
 

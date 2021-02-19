@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from '../../state/BlogProvider';
+import { useDispatch } from 'react-redux';
 import { deleteBlog } from '../../actions/blogActions';
+import { Link } from 'react-router-dom';
 
 const Blog = ({ title, body, id }) => {
   const dispatch = useDispatch();
@@ -11,12 +12,16 @@ const Blog = ({ title, body, id }) => {
   };
   
   return (
-    <>
-      <h2>{title}</h2>
+    <div>
+      <Link to={`/blogpost/${id}`} 
+        title={title}
+        body={body}
+        index={id}>
+        <h2>{title}</h2>
+      </Link>
       <p>{body}</p>
       <button onClick={handleClick}>&#9785;</button>
-      
-    </>
+    </div> 
   );
 };
 

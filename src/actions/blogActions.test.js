@@ -1,4 +1,7 @@
-import { createBlog, deleteBlog, CREATE_BLOG, DELETE_BLOG } from './blogActions';
+import { createBlog, 
+  deleteBlog, 
+  CREATE_BLOG, 
+  DELETE_BLOG } from './blogActions';
 
 
 describe('blog actions', () => {
