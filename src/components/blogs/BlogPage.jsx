@@ -1,26 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import CommentsForm from '../form/CommentsForm';
 import { useSelector } from 'react-redux';
 import { getBlogs } from '../../selectors/blogSelectors';
 import CommentsList from '../comments/CommentsList';
 
-const BlogPage = async({ match }) => {
-  const [blog, setBlog] = useState({});
+const BlogPage = ({ match }) => {
+
   const blogs = useSelector(getBlogs);
-  const myBlog = await blogs.filter(blg => String(blg.id) === match.params.id);
-  console.log(myBlog);
-  useEffect(() => {
-    setBlog({ id: myBlog.id, body: myBlog.body, title: myBlog.title });
-  }, []);
-console.log(blog);
+  const myBlog = blogs.find(blog => blog.id === +match.params.id);
+
 
   return (
     <div>
-      <h2>{blog.title}</h2>
-      <p>{blog.body}</p>
-      <CommentsList index={blog.id} />
-      <CommentsForm index={blog.id} />
+      <h2>{myBlog.title}</h2>
+      <p>{myBlog.body}</p>
+      <CommentsList index={myBlog.id} />
+      <CommentsForm index={myBlog.id} />
     </div>
   );
 };

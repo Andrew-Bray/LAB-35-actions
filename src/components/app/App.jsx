@@ -11,7 +11,7 @@ export default function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/blogpost/:id" component={BlogPage} />
+          <Route exact path="/blogpost/:id" component={BlogPage} />
         </Switch>
       </Router>
     </div>

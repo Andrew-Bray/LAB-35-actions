@@ -7,12 +7,11 @@ const BlogForm = () => {
   
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
-  const [id, setId] = useState(1);
+  // const [id, setId] = useState(0);
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const newId = Date.now();
-    await setId(newId);
+    const id = Date.now();
     dispatch(createBlog({ id, title, body }));
     setTitle('');
     setBody('');

@@ -7,12 +7,12 @@ const CommentsForm = ({ index }) => {
   const dispatch = useDispatch();
 
   const [text, setText] = useState('');
-  const [postIndex, setPostIndex] = useState('');
+ 
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    await setPostIndex(index);
-    dispatch(createComment({ postIndex, text }));
+  
+    dispatch(createComment(index, text));
     setText('');
   };
 

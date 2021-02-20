@@ -5,14 +5,15 @@ describe('comment selector', () => {
   it('tests the collection of comments in state', () => {
     const state = {
       comments: {
-        comments: [{ id: 3, body: 'I said heloooooooo' }]
-      }
+        0: ['I said heloooooooo'] }
     };
+    
 
     const comments = getComments(state);
 
-    expect(comments).toEqual([{ 
-      id: 3, 
-      body: 'I said heloooooooo' }]);
+    expect(comments).toEqual({
+      0: ['I said heloooooooo']});
   });
 });
+
+
